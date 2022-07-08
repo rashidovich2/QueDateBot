@@ -37,10 +37,10 @@ If you get an answer like this, it means that `Python` is installed.
 Python 3.9.5
 ```
 
-#### Then fork the DatingBot
+#### Then fork the QueDateBot
 
 ```sh
-https://github.com/DavidRomanovizc/DatingBot.git
+https://github.com/QueGroup/QueDateBot.git
 ```
 
 ## :rocket: Usage
