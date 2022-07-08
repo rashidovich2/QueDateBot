@@ -24,7 +24,7 @@
 
 #### First check if you have Python installed
 
-Before installing this DatingBot-project you need to check if you have python\
+Before installing this QueDateBot-project you need to check if you have python\
 To check if you have python installed, run this command in your terminal:
 
 ```sh
