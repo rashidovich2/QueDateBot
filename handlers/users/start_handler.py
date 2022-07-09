@@ -3,7 +3,6 @@ import random
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.types import CallbackQuery
-from loguru import logger
 
 from data.config import support_ids
 from filters import IsPrivate
