@@ -9,8 +9,8 @@ async def get_next_user(telegram_id, monitoring=False):
     else:
         user_filter = await db_commands.select_all_users()
 
-    user_list = []
-    for i in user_filter:
-        if int(i['telegram_id']) != int(telegram_id):
-            user_list.append(i['telegram_id'])
-    return user_list
+    return [
+        i['telegram_id']
+        for i in user_filter
+        if int(i['telegram_id']) != int(telegram_id)
+    ]

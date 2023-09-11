@@ -18,6 +18,8 @@ async def second_registration_keyboard():
 
 async def confirm_keyboard():
     markup = InlineKeyboardMarkup(row_width=2)
-    yes_all_good = InlineKeyboardButton(text=f"Да все хорошо!", callback_data="yes_all_good")
+    yes_all_good = InlineKeyboardButton(
+        text="Да все хорошо!", callback_data="yes_all_good"
+    )
     markup.add(yes_all_good)
     return markup

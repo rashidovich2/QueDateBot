@@ -13,12 +13,12 @@ async def questionnaires_keyboard(target_id, monitoring=False):
                                                                                  target_id=target_id))
         dislike = InlineKeyboardButton(text='👎', callback_data=action_keyboard.new(action="dislike",
                                                                                     target_id=1))
-        go_back = InlineKeyboardButton(text=f'⏪️ Остановить',
-                                       callback_data=action_keyboard.new(action="stopped",
-                                                                         target_id=1))
+        go_back = InlineKeyboardButton(
+            text='⏪️ Остановить',
+            callback_data=action_keyboard.new(action="stopped", target_id=1),
+        )
         markup.row(like, dislike)
         markup.add(go_back)
-        return markup
     else:
         ban = InlineKeyboardButton(text='🚫 Забанить',
                                    callback_data=action_keyboard_monitoring.new(action="ban",
@@ -28,7 +28,8 @@ async def questionnaires_keyboard(target_id, monitoring=False):
                                                                                                        target_id=1))
         markup.row(ban)
         markup.row(next_btn)
-        return markup
+
+    return markup
 
 
 async def reciprocity_keyboard(user_for_like):

@@ -5,8 +5,7 @@ from django.db.models import Q
 
 @sync_to_async
 def select_user(telegram_id: int):
-    user = User.objects.filter(telegram_id=telegram_id).values().first()
-    return user
+    return User.objects.filter(telegram_id=telegram_id).values().first()
 
 
 @sync_to_async
@@ -31,26 +30,22 @@ def add_meetings_user(telegram_id, username):
 
 @sync_to_async
 def select_all_user_meetings():
-    users = UserMeetings.objects.all().values()
-    return users
+    return UserMeetings.objects.all().values()
 
 
 @sync_to_async
 def select_user_meetings(telegram_id: int):
-    user = UserMeetings.objects.filter(telegram_id=telegram_id).values().first()
-    return user
+    return UserMeetings.objects.filter(telegram_id=telegram_id).values().first()
 
 
 @sync_to_async
 def select_all_users():
-    users = User.objects.all().values()
-    return users
+    return User.objects.all().values()
 
 
 @sync_to_async
 def select_all_users_id(telegram_id: int):
-    users = User.objects.filter(telegram_id=telegram_id).all().values()
-    return users
+    return User.objects.filter(telegram_id=telegram_id).all().values()
 
 
 @sync_to_async
@@ -70,14 +65,12 @@ def update_user_meetings_data(telegram_id, **kwargs):
 
 @sync_to_async
 def select_meetings_user(telegram_id: int):
-    user = UserMeetings.objects.filter(telegram_id=telegram_id).values().first()
-    return user
+    return UserMeetings.objects.filter(telegram_id=telegram_id).values().first()
 
 
 @sync_to_async
 def select_user_username(username: str):
-    user = User.objects.filter(username=username).values().first()
-    return user
+    return User.objects.filter(username=username).values().first()
 
 
 @sync_to_async

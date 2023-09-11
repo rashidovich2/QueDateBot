@@ -3,7 +3,4 @@ from aiogram.utils.markdown import hbold
 
 
 def get_display_name(user: types.User):
-    if user.username:
-        return f"@{user.username}"
-
-    return hbold(user.first_name)
+    return f"@{user.username}" if user.username else hbold(user.first_name)

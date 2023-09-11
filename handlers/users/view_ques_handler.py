@@ -44,8 +44,8 @@ async def like_questionnaire(call: CallbackQuery, state: FSMContext, callback_da
     random_user = random.choice(user_list)
     action = callback_data['action']
     user_db = await db_commands.select_user(telegram_id=call.from_user.id)
-    username = call.from_user.username
     if action == "like":
+        username = call.from_user.username
         try:
             target_id = callback_data["target_id"]
             await create_questionnaire(form_owner=call.from_user.id, chat_id=target_id,

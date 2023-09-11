@@ -16,10 +16,10 @@ async def on_startup(dispatcher):
     await set_default_commands(dispatcher)
     # Уведомляет о запуске
     await on_startup_notify(dispatcher)
-    logging.info(f'Создаем подключение...')
+    logging.info('Создаем подключение...')
     await db.create()
-    logging.info(f'Подключение успешно!')
-    logging.info(f'База загружена успешно!')
+    logging.info('Подключение успешно!')
+    logging.info('База загружена успешно!')
 
 
 def setup_django():
@@ -27,7 +27,7 @@ def setup_django():
         "DJANGO_SETTINGS_MODULE",
         "django_project.telegrambot.telegrambot.settings"
     )
-    os.environ.update({'DJANGO_ALLOW_ASYNC_UNSAFE': "true"})
+    os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = "true"
     django.setup()
 
 

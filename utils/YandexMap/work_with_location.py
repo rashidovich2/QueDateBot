@@ -43,9 +43,7 @@ class Client:
     def address(self, longitude, latitude) -> str:
         """Fetch address for passed coordinates."""
         got = self._request(f"{longitude},{latitude}")
-        data = got["GeoObjectCollection"]["featureMember"]
-
-        if not data:
+        if data := got["GeoObjectCollection"]["featureMember"]:
+            return data[0]["GeoObject"]["metaDataProperty"]["GeocoderMetaData"]["text"]
+        else:
             raise NothingFound(f'Nothing found for "{longitude} {latitude}"')
-
-        return data[0]["GeoObject"]["metaDataProperty"]["GeocoderMetaData"]["text"]

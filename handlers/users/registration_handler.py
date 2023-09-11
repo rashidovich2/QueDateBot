@@ -28,7 +28,7 @@ async def registration(call: CallbackQuery):
     user_status = user_data[9]
     if not user_status:
         markup = await second_registration_keyboard()
-        text = f"Пройдите опрос, чтобы зарегистрироваться"
+        text = "Пройдите опрос, чтобы зарегистрироваться"
         await call.message.edit_text(text, reply_markup=markup)
     else:
         markup = InlineKeyboardMarkup()
@@ -69,7 +69,10 @@ async def commentary_reg(message: types.Message):
     try:
         censored = censored_message(message.text)
         await db_commands.update_user_data(commentary=quote_html(censored), telegram_id=message.from_user.id)
-        await message.answer(f'Комментарий принят! Выберите, кого вы хотите найти: ', reply_markup=markup)
+        await message.answer(
+            'Комментарий принят! Выберите, кого вы хотите найти: ',
+            reply_markup=markup,
+        )
 
 
     except Exception as err:
@@ -93,7 +96,9 @@ async def sex_reg(call: CallbackQuery):
         except asyncpg.exceptions.UniqueViolationError as err:
             logger.error(err)
 
-    await call.message.edit_text(f'Отлично! Теперь напишите мне ваше имя, которое будут все видеть в анкете')
+    await call.message.edit_text(
+        'Отлично! Теперь напишите мне ваше имя, которое будут все видеть в анкете'
+    )
     await RegData.name.set()
 
 
@@ -165,7 +170,7 @@ async def get_hobbies(message: types.Message, state: FSMContext):
         await state.update_data(hobbies=message.text)
     except asyncpg.exceptions.UniqueViolationError as err:
         logger.error(err)
-    await message.answer(f"И напоследок, Пришлите мне вашу фотографию")
+    await message.answer("И напоследок, Пришлите мне вашу фотографию")
     await RegData.photo.set()
 
 
@@ -176,7 +181,7 @@ async def get_photo(message: types.Message, state: FSMContext):
     try:
         await db_commands.update_user_data(telegram_id=telegram_id, photo_id=file_id)
 
-        await message.answer(f'Фото принято!')
+        await message.answer('Фото принято!')
     except Exception as err:
         logger.error(err)
         await message.answer(f'Произошла ошибка! Попробуйте еще раз либо отправьте другую фотографию. \n'

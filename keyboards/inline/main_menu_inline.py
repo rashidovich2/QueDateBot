@@ -9,7 +9,6 @@ async def start_keyboard(status):
         support = InlineKeyboardButton(text="🆘 Поддержка", callback_data="support")
         markup.row(registration)
         markup.row(support, information)
-        return markup
     else:
         my_profile = InlineKeyboardButton(text="👤 Моя анекта", callback_data="my_profile")
         filters = InlineKeyboardButton(text="⚙️ Фильтры", callback_data="filters")
@@ -22,4 +21,5 @@ async def start_keyboard(status):
         markup.row(view_ques, meetings)
         markup.row(information, statistics)
         markup.add(support)
-        return markup
+
+    return markup
